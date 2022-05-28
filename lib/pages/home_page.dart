@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:multimedia_app/pages/detail_audio_page.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 import 'package:flutter/material.dart';
@@ -179,65 +180,73 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                           ListView.builder(
                               itemCount: books == null? 0 :books.length,
                               itemBuilder: (_,i){
-                                return Container(
-                                  margin: const EdgeInsets.only(left:20, right: 20, top:10, bottom: 10),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: AppColors.tabBarViewColor,
-                                        boxShadow: [
-                                          BoxShadow(
-                                              blurRadius: 2,
-                                              offset: const Offset(0,0),
-                                              color: Colors.grey.withOpacity(.2)
-                                          )
-                                        ]
-                                    ),
+                                return
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(context,
+                                      MaterialPageRoute(
+                                          builder: (context) => DetailAudioPage(detailAudio: books, index: i,)));
+                                    },
                                     child: Container(
-                                      padding: const EdgeInsets.all(8),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            width: 90,
-                                            height: 100,
-                                            decoration: BoxDecoration(
-                                                borderRadius: BorderRadius.circular(10),
-                                                image: DecorationImage(
-                                                  image: AssetImage(books[i]["img"]),
-                                                )
-                                            ),
-                                          ),
-                                          const SizedBox(width: 10,),
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                      margin: const EdgeInsets.only(left:20, right: 20, top:10, bottom: 10),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(10),
+                                            color: AppColors.tabBarViewColor,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 2,
+                                                  offset: const Offset(0,0),
+                                                  color: Colors.grey.withOpacity(.2)
+                                              )
+                                            ]
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(8),
+                                          child: Row(
                                             children: [
-                                              Row(
-                                                children: [
-                                                  Icon(Icons.star, size: 22, color: AppColors.starColor,),
-                                                  const SizedBox(width: 5,),
-                                                  Text(books[i]["rating"], style: TextStyle(
-                                                      color: AppColors.menu2Color, fontSize: 17),)
-                                                ],
-                                              ),
-                                              Text(books[i]["title"], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                                              Text(books[i]["text"], style: TextStyle(fontSize: 16, color: AppColors.subTitleText),),
                                               Container(
-                                                width: 60,
-                                                height: 20,
+                                                width: 90,
+                                                height: 100,
                                                 decoration: BoxDecoration(
-                                                    borderRadius: BorderRadius.circular(3),
-                                                    color: AppColors.loveColor
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    image: DecorationImage(
+                                                      image: AssetImage(books[i]["img"]),
+                                                    )
                                                 ),
-                                                child: const Text("Love", style: TextStyle(fontSize: 13, color: Colors.white),),
-                                                alignment: Alignment.center,
+                                              ),
+                                              const SizedBox(width: 10,),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.star, size: 22, color: AppColors.starColor,),
+                                                      const SizedBox(width: 5,),
+                                                      Text(books[i]["rating"], style: TextStyle(
+                                                          color: AppColors.menu2Color, fontSize: 17),)
+                                                    ],
+                                                  ),
+                                                  Text(books[i]["title"], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                                  Text(books[i]["text"], style: TextStyle(fontSize: 16, color: AppColors.subTitleText),),
+                                                  Container(
+                                                    width: 60,
+                                                    height: 20,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3),
+                                                        color: AppColors.loveColor
+                                                    ),
+                                                    child: const Text("Love", style: TextStyle(fontSize: 13, color: Colors.white),),
+                                                    alignment: Alignment.center,
+                                                  )
+                                                ],
                                               )
                                             ],
-                                          )
-                                        ],
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
+                                  );
                               }),
                           const Material(
                             child: ListTile(

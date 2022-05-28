@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         fontFamily: GoogleFonts.poppins().fontFamily,
       ),
-      home: const DetailAudioPage(),
+      home: const MyHomePage(),
     );
   }
 }

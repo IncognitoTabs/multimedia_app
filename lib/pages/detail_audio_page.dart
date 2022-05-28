@@ -1,5 +1,4 @@
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
@@ -7,7 +6,10 @@ import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 import '../utils/audio_file.dart';
 
 class DetailAudioPage extends StatefulWidget {
-  const DetailAudioPage({Key? key}) : super(key: key);
+  final detailAudio;
+  final int index;
+
+  const DetailAudioPage({Key? key, required this.detailAudio, required this.index}) : super(key: key);
 
   @override
   State<DetailAudioPage> createState() => _DetailAudioPageState();
@@ -47,14 +49,15 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
               right: 0,
               child: AppBar(
                 leading: IconButton(
-                  icon: Icon(Icons.arrow_back_ios,),
-                  onPressed: (){
-
-                  },
-                ),
+                  icon: const Icon(Icons.arrow_back_ios,),
+                  onPressed: () {
+                    advancedPlayer.stop();
+                    Navigator.of(context).pop();
+                  }
+              ),
                 actions: [
                   IconButton(
-                    icon: Icon(Icons.search,),
+                    icon: const Icon(Icons.search,),
                     onPressed: (){
 
                     },
@@ -77,19 +80,19 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                 child: Column(
                   children: [
                     SizedBox(height: screenHeight * .08,),
-                    Text("The water cure"
-                      ,style: TextStyle(
+                    Text(widget.detailAudio[widget.index]["title"]
+                      ,style: const TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold
                       ),
                     ),
-                    Text("The Subtitle"
+                    Text(widget.detailAudio[widget.index]["text"]
                       ,style: TextStyle(
                         fontSize: 18,
                         color: AppColors.subTitleText
                       ),
                     ),
-                    AudioFile(advancedPlayer: advancedPlayer,)
+                    AudioFile(advancedPlayer: advancedPlayer, path: widget.detailAudio[widget.index]["audio"],)
                   ],
                 ),
               )
@@ -112,7 +115,7 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                         borderRadius: BorderRadius.circular(50),
                         border: Border.all(color: Colors.white, width: 2),
                         image: DecorationImage(
-                          image: AssetImage("assets/img/pic-1.png"),
+                          image: AssetImage(widget.detailAudio[widget.index]["img"]),
                           fit: BoxFit.cover
                         ),
                     ),
