@@ -1,15 +1,14 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 
-import '../utils/audio_file.dart';
-
 class DetailAudioPage extends StatefulWidget {
   final detailAudio;
-  final int index;
+  int index;
 
-  const DetailAudioPage({Key? key, required this.detailAudio, required this.index}) : super(key: key);
+  DetailAudioPage({Key? key, required this.detailAudio, required this.index}) : super(key: key) ;
 
   @override
   State<DetailAudioPage> createState() => _DetailAudioPageState();
@@ -17,12 +16,204 @@ class DetailAudioPage extends StatefulWidget {
 
 class _DetailAudioPageState extends State<DetailAudioPage> {
 
+  Duration _duration = const Duration();
+  Duration _position = const Duration();
+
+  bool isPlaying = false;
+  bool isAutoNext = false;
+  bool isRepeat = false;
+  final List<IconData> _icons = [
+    CupertinoIcons.play_circle_fill,
+    CupertinoIcons.pause_circle_fill,
+  ];
+
+  Color activeStateColor = Colors.blue;
+  Color noActiveStateColor = Colors.black;
+  
   late AudioPlayer advancedPlayer;
 
   @override
   void initState() {
     super.initState();
     advancedPlayer = AudioPlayer();
+
+    advancedPlayer.onDurationChanged.listen((event) {
+      setState(() {
+        _duration = event;
+      });
+    });
+    advancedPlayer.onAudioPositionChanged.listen((event) {
+      setState(() {
+        _position = event;
+      });
+    });
+    advancedPlayer.setUrl(widget.detailAudio[widget.index]["audio"]);
+    advancedPlayer.onPlayerCompletion.listen((event) {
+      setState(() {
+        _position = const Duration(seconds: 0);
+        if(isRepeat == false && isAutoNext == false){
+          isPlaying = false;
+        }else if(isRepeat == false && isAutoNext == true){
+          widget.index = getAudioIndex(widget.index + 1);
+          advancedPlayer.play(widget.detailAudio[widget.index]["audio"]);
+          isPlaying = true;
+          isRepeat = false;
+        }
+      });
+    });
+  }
+
+  Widget slider(){
+    return Slider(
+        activeColor: Colors.red,
+        inactiveColor: Colors.grey,
+        value: _position.inSeconds.toDouble(),
+        min: 0.0,
+        max: _duration.inSeconds.toDouble(),
+        onChanged: (double value){
+          setState(() {
+            changeToSecond(value.toInt());
+            value = value;
+          });
+        }
+    );
+  }
+
+  void changeToSecond(int sec){
+    Duration newDuration = Duration(seconds: sec);
+    advancedPlayer.seek(newDuration);
+  }
+
+  int getAudioIndex(int i) {
+    int result = 0;
+    if(i >= widget.detailAudio.length){
+      result = 0;
+    }else if (i<0){
+      result = widget.detailAudio.length - 1;
+    }else{
+      result = i;
+    }
+    return result;
+  }
+
+  Widget btnPrevious(){
+    return IconButton(
+        onPressed: (){
+          widget.index = getAudioIndex(widget.index - 1);
+          advancedPlayer.play(widget.detailAudio[widget.index]["audio"]);
+          setState(() {
+            isPlaying = true;
+          });
+        },
+        icon: ImageIcon(
+          const AssetImage('assets/img/backword.png'),
+          size: 15,
+          color: noActiveStateColor,
+        )
+    );
+  }
+
+  Widget btnNext(){
+    return IconButton(
+        onPressed: (){
+          widget.index = getAudioIndex(widget.index + 1);
+          advancedPlayer.play(widget.detailAudio[widget.index]["audio"]);
+          setState(() {
+            isPlaying = true;
+          });
+        },
+        icon: ImageIcon(
+          const AssetImage('assets/img/forward.png'),
+          size: 15,
+          color: noActiveStateColor,
+        )
+    );
+  }
+
+  Widget btnRepeat(){
+    return IconButton(
+        onPressed: (){
+          if(isRepeat == false){
+            advancedPlayer.setReleaseMode(ReleaseMode.LOOP);
+            setState(() {
+              isRepeat = true;
+              isAutoNext = false;
+            });
+          }
+          else{
+            advancedPlayer.setReleaseMode(ReleaseMode.RELEASE);
+            setState(() {
+              isRepeat = false;
+            });
+          }
+        },
+        icon: ImageIcon(
+          const AssetImage('assets/img/repeat_one.png'),
+          size: 22,
+          color: isRepeat == true? activeStateColor : noActiveStateColor,
+        )
+    );
+  }
+
+  Widget btnAutoNext(){
+    return IconButton(
+        onPressed: (){
+          if(isAutoNext == false){
+            advancedPlayer.setReleaseMode(ReleaseMode.RELEASE);
+            setState(() {
+              isAutoNext = true;
+              isRepeat = false;
+            });
+          }
+          else{
+            setState(() {
+              isAutoNext = false;
+            });
+          }
+        },
+        icon: ImageIcon(
+          const AssetImage('assets/img/loop.png'),
+          size: 15,
+          color: isAutoNext == true? activeStateColor : noActiveStateColor,
+        )
+    );
+  }
+
+  Widget btnStart(){
+    return IconButton(
+      padding: const EdgeInsets.only(bottom: 10),
+      icon: isPlaying == false
+          ? Icon(_icons[0], size: 40, color: activeStateColor,)
+          : Icon(_icons[1], size: 40,color: activeStateColor,),
+      onPressed: (){
+        if(isPlaying == false){
+          advancedPlayer.play(widget.detailAudio[widget.index]["audio"]);
+          setState(() {
+            isPlaying = true;
+          });
+        }
+        else{
+          advancedPlayer.pause();
+          setState(() {
+            isPlaying = false;
+          });
+        }
+      },
+    );
+  }
+
+  Widget loadAsset(){
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        btnRepeat(),
+        btnPrevious(),
+        btnStart(),
+        btnNext(),
+        btnAutoNext(),
+      ],
+    );
   }
 
   @override
@@ -92,7 +283,22 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                         color: AppColors.subTitleText
                       ),
                     ),
-                    AudioFile(advancedPlayer: advancedPlayer, path: widget.detailAudio[widget.index]["audio"],)
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 25, right: 25),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(_position.toString().split(".")[0], style: const TextStyle(fontSize: 16),),
+                              Text(_duration.toString().split(".")[0], style: const TextStyle(fontSize: 16),),
+                            ],
+                          ),
+                        ),
+                        slider(),
+                        loadAsset(),
+                      ],
+                    )
                   ],
                 ),
               )

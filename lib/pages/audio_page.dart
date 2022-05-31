@@ -2,14 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:multimedia_app/pages/detail_audio_page.dart';
+import 'package:multimedia_app/pages/radio_page.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 import 'package:flutter/material.dart';
 
 import '../utils/app_tabs.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class MyAudioPage extends StatefulWidget {
+  const MyAudioPage({Key? key}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -21,10 +22,10 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyAudioPageState createState() => _MyAudioPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+class _MyAudioPageState extends State<MyAudioPage> with SingleTickerProviderStateMixin {
   late List popularBooks;
   late List books ;
   late ScrollController _scrollController;
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
     // than having to individually change instances of widgets.
     return Scaffold(
         backgroundColor: AppColors.background.withOpacity(.8),
-        drawer: const Drawer(),
+        drawer: const NavigationDrawer(),
         key: _scaffoldKey,
         body: Stack(
           fit: StackFit.expand,
@@ -73,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                 body: Column(
                   children: [
                     Container(
-                        margin: const EdgeInsets.only(left: 20, right: 20,),
+                        margin: const EdgeInsets.only(left: 10, right: 20,),
                         child : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -164,8 +165,8 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
                                       ]
                                   ),
                                   tabs: [
-                                    AppTabs(text: 'New', color: AppColors.menu1Color,),
-                                    AppTabs(text: 'Popular', color: AppColors.menu2Color,),
+                                    AppTabs(text: 'All', color: AppColors.menu1Color,),
+                                    AppTabs(text: 'Favourite', color: AppColors.menu2Color,),
                                     AppTabs(text: 'Trending', color: AppColors.menu3Color,),
                                   ],
                                 ),
@@ -275,5 +276,105 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
         )
     );
   }
+}
 
+class NavigationDrawer extends StatelessWidget {
+  const NavigationDrawer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            buildHeader(context),
+            buildMenuItem(context),
+          ],
+        ),
+      )
+    );
+  }
+
+  Widget buildHeader(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
+      color: AppColors.menu3Color,
+      child: Column(
+        children: const [
+          CircleAvatar(
+            radius: 50,
+            backgroundImage: NetworkImage('https://bitly.com.vn/mq9b9m'),
+          ),
+          SizedBox(height: 12,),
+          Text(
+            'Hoàng Minh Tài',
+            style: TextStyle(
+              fontSize: 28,
+              color: Colors.white,
+            ),
+          ),
+          Text(
+            '6051071102@st.utc2.edu.vn',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildMenuItem(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      child: Wrap(
+        runSpacing: 16,
+        children: [
+          ListTile(
+            leading: const Icon(Icons.home_outlined),
+            title: const Text('Home'),
+            onTap: (){
+
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.audiotrack_outlined),
+            title: const Text('My Audio'),
+            onTap: (){
+
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.radio_outlined),
+            title: const Text('My FM'),
+            onTap: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => const RadioPage()
+                )
+              );
+            }
+          ),
+          const Divider(color: Colors.black45,),
+          ListTile(
+            leading: const Icon(Icons.info_outlined),
+            title: const Text('About'),
+            onTap: (){
+
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings_outlined),
+            title: const Text('Setting'),
+            onTap: (){
+
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }

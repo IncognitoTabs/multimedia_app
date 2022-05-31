@@ -13,7 +13,7 @@ class AppTabs extends StatelessWidget {
       width: AppParams.buttonWidth,
       height: AppParams.buttonHeight,
       child: Text(
-        text, style: TextStyle(color: Colors.white, fontSize: 17),
+        text, style: const TextStyle(color: Colors.white, fontSize: 17),
       ),
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class AppTabs extends StatelessWidget {
             BoxShadow(
                 color: Colors.grey.withOpacity(.3),
                 blurRadius:7,
-                offset: Offset(0,0)
+                offset: const Offset(0,0)
             )
           ]
       ),
