@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:multimedia_app/pages/detail_audio_page.dart';
+import 'package:multimedia_app/pages/onboarding_page.dart';
 import 'package:multimedia_app/pages/radio_page.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
@@ -299,12 +300,12 @@ class NavigationDrawer extends StatelessWidget {
   Widget buildHeader(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
-      color: AppColors.menu3Color,
+      color: AppColors.menu3Color.withOpacity(.7),
       child: Column(
         children: const [
           CircleAvatar(
             radius: 50,
-            backgroundImage: NetworkImage('https://bitly.com.vn/mq9b9m'),
+            backgroundImage: NetworkImage(AppParams.avatarUrl),
           ),
           SizedBox(height: 12,),
           Text(
@@ -336,7 +337,10 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.home_outlined),
             title: const Text('Home'),
             onTap: (){
-
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => const OnBoardingPage()
+                  )
+              );
             },
           ),
           ListTile(
