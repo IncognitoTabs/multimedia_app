@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 
-class DetailAudioPage extends StatefulWidget {
+class DetailOnlineAudioPage extends StatefulWidget {
   final detailAudio;
   int index;
 
-  DetailAudioPage({Key? key, required this.detailAudio, required this.index}) : super(key: key) ;
+  DetailOnlineAudioPage({Key? key, required this.detailAudio, required this.index}) : super(key: key) ;
 
   @override
-  State<DetailAudioPage> createState() => _DetailAudioPageState();
+  State<DetailOnlineAudioPage> createState() => _DetailOnlineAudioPageState();
 }
 
-class _DetailAudioPageState extends State<DetailAudioPage> {
+class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
 
   Duration _duration = const Duration();
   Duration _position = const Duration();

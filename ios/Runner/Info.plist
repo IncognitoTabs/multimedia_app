@@ -3,6 +3,9 @@
 <plist version="1.0">
 <key>NSAppTransportSecurity</key>
 <dict>
+
+<key>NSAppleMusicUsageDescription</key>
+	<string>..Add a reason..</string>
     <key>NSAllowsArbitraryLoads</key>
         <true/>
 	<key>CFBundleDevelopmentRegion</key>

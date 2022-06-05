@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:multimedia_app/pages/audio_page.dart';
-import 'package:multimedia_app/pages/radio_page.dart';
+import 'package:multimedia_app/pages/home_page.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 
@@ -145,7 +144,7 @@ class OnBoardingPage extends StatelessWidget {
 
   void goToHome(BuildContext context) {
     Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const MyAudioPage()
+        MaterialPageRoute(builder: (context) => const HomePage()
         )
     );
   }
