@@ -4,6 +4,12 @@
 <key>NSAppTransportSecurity</key>
 <dict>
 
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>https</string>
+  <string>http</string>
+</array>
+
 <key>NSAppleMusicUsageDescription</key>
 	<string>..Add a reason..</string>
     <key>NSAllowsArbitraryLoads</key>

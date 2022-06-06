@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:multimedia_app/pages/detail_offline_audio_page.dart';
 import 'package:multimedia_app/pages/detail_online_audio_page.dart';
 import 'package:multimedia_app/pages/onboarding_page.dart';
+import 'package:multimedia_app/pages/profile_page.dart';
 import 'package:multimedia_app/pages/radio_page.dart';
 // ignore: library_prefixes
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
@@ -95,10 +96,24 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                               ],
                             ),
                             Row(
-                              children: const [
-                                Icon(CupertinoIcons.search),
-                                SizedBox(width: 10,),
-                                Icon(Icons.notifications)
+                              children: [
+                                const Icon(Icons.notifications),
+                                Container(
+                                  width: 35,
+                                  margin: const EdgeInsets.all(8),
+                                  child: InkWell(
+                                    child: const CircleAvatar(
+                                      radius: 20,
+                                      backgroundImage: NetworkImage(AppParams.avatarUrl),
+                                    ),
+                                    onTap: (){
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(builder: (context) => const ProfilePage()
+                                          )
+                                      );
+                                    },
+                                  ),
+                                ),
                               ],
                             )
                           ],
@@ -394,6 +409,10 @@ class NavigationDrawer extends StatelessWidget {
             leading: const Icon(Icons.info_outlined),
             title: const Text('About'),
             onTap: (){
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const ProfilePage()
+                  )
+              );
               AlanVoice.deactivate();
               AlanVoice.hideButton();
             },

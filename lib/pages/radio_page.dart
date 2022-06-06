@@ -6,9 +6,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:multimedia_app/pages/home_page.dart';
+import 'package:multimedia_app/pages/profile_page.dart';
 import 'package:velocity_x/velocity_x.dart';
 // ignore: library_prefixes
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
+import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 
 import '../models/radio.dart';
 
@@ -28,15 +30,16 @@ class _RadioPageState extends State<RadioPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final suggestions =[
-    'Play',
-    'Stop',
+    '     Play     ',
+    '     Stop     ',
     'Play rock music',
     'Play pop music',
-    'Play next',
-    'play 107 FM',
-    'play 104 FM',
-    'pause',
-    'play previous',
+    '  Play next   ',
+    'Play 107 FM',
+    'Play 104 FM',
+    '   Pause   ',
+    'Play previous',
+    'How the weather today',
   ];
 
   @override
@@ -104,6 +107,7 @@ class _RadioPageState extends State<RadioPage> {
         _playMusic(newRadio.url);
         break;
       default:
+        break;
     }
   }
 
@@ -160,13 +164,29 @@ class _RadioPageState extends State<RadioPage> {
                         icon: const ImageIcon(AssetImage("assets/img/menu.png"),size: 24, color: Colors.black,),
                         padding: const EdgeInsets.only(left: 15),
                         onPressed: () {
-                          _audioPlayer.stop();
                           _scaffoldKey.currentState!.openDrawer();
+                          _audioPlayer.stop();
                           AlanVoice.deactivate();
                           AlanVoice.hideButton();
                           setState(() { });
                         }
                     ),
+                    actions: [
+                      InkWell(
+                        child:  const CircleAvatar(
+                          radius: 18,
+                          backgroundImage: NetworkImage(AppParams.avatarUrl),
+                        ),
+                          onTap: (){
+                          _audioPlayer.stop();
+                            Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context) => const ProfilePage()
+                                )
+                            );
+                          }
+                      ),
+                      const SizedBox(width: 10,)
+                    ],
                     backgroundColor: Colors.transparent,
                     shadowColor: Colors.transparent,
                   ),
@@ -177,7 +197,7 @@ class _RadioPageState extends State<RadioPage> {
                   VxSwiper.builder(
                       itemCount: suggestions.length,
                       height: 50,
-                      viewportFraction: .35,
+                      viewportFraction: .5,
                       autoPlay: true,
                       enableInfiniteScroll: true,
                       autoPlayCurve: Curves.bounceIn,
@@ -186,7 +206,7 @@ class _RadioPageState extends State<RadioPage> {
                         final s = suggestions[index];
                         return Chip(
                           label: s.text.make(),
-                          backgroundColor: Vx.randomOpaqueColor,
+                          backgroundColor: Vx.randomPrimaryColor,
                         );
                       }),
                 ],

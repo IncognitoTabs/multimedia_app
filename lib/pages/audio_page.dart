@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:multimedia_app/pages/home_page.dart';
+import 'package:multimedia_app/pages/profile_page.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 import 'package:on_audio_query/on_audio_query.dart';
@@ -69,9 +70,17 @@ class _AudioPageState extends State<AudioPage> {
                   Container(
                     width: 35,
                     margin: const EdgeInsets.all(8),
-                    child: const CircleAvatar(
-                      radius: 50,
-                      backgroundImage: NetworkImage(AppParams.avatarUrl),
+                    child: InkWell(
+                      child: const CircleAvatar(
+                        radius: 20,
+                        backgroundImage: NetworkImage(AppParams.avatarUrl),
+                      ),
+                      onTap: (){
+                        Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => const ProfilePage()
+                            )
+                        );
+                      },
                     ),
                   ),
                 ],

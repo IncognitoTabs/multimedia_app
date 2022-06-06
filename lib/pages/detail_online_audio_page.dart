@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:multimedia_app/pages/profile_page.dart';
 import 'package:multimedia_app/utils/app_colors.dart' as AppColors;
 import 'package:multimedia_app/utils/app_param.dart' as AppParams;
 
@@ -247,12 +248,20 @@ class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
                   }
               ),
                 actions: [
-                  IconButton(
-                    icon: const Icon(Icons.search,),
-                    onPressed: (){
-
-                    },
+                  InkWell(
+                    child:  const CircleAvatar(
+                      radius: 18,
+                      backgroundImage: NetworkImage(AppParams.avatarUrl),
+                    ),
+                    onTap: (){
+                      advancedPlayer.stop();
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => const ProfilePage()
+                        )
+                      );
+                    }
                   ),
+                  const SizedBox(width: 10,)
                 ],
                 backgroundColor: AppColors.audioBlueBackground,
                 shadowColor: Colors.transparent,
