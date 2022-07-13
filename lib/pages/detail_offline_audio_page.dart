@@ -284,7 +284,7 @@ class _DetailOfflineAudioPageState extends State<DetailOfflineAudioPage> {
               left: 0,
               right: 0,
               top: screenHeight * .2,
-              height: screenHeight* .4,
+              height: screenHeight* .36,
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(25),
@@ -338,17 +338,18 @@ class _DetailOfflineAudioPageState extends State<DetailOfflineAudioPage> {
                   color: AppColors.background,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(0),
                       border: Border.all(color: Colors.white, width: 2),
                     ),
                     child: QueryArtworkWidget(
                       id: widget.list[widget.index].id,
                       type: ArtworkType.AUDIO,
                       keepOldArtwork: true,
-                      nullArtworkWidget: Image.asset('assets/img/voice_assistant.png')
+                      nullArtworkWidget: Image.asset('assets/img/voice_assistant.png'),
+                      artworkFit: BoxFit.fill,
                     ),
                   ),
                 ),

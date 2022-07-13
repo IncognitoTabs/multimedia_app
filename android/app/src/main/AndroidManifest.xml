@@ -28,7 +28,7 @@
         </intent>
     </queries>
    <application
-        android:label="multimedia_app"
+        android:label="MT MEDIA"
         android:name="${applicationName}"
         android:usesCleartextTraffic="true"
         android:icon="@mipmap/multimedia_logo"

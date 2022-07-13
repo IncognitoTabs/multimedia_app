@@ -167,7 +167,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           SizedBox(height: 16,),
           Text(
-            'As a 3rd year student at UTCHCMC majoring in Information Technology, I have knowledge of software development and understanding of several programming languages such as Dart with Flutter Framework, C# .NET, Java and Javascript.\n\n My goal is to give people a better life by developing technology solutions',
+            'As a 3rd year student at UTC-HCMC majoring in Information Technology, I have knowledge of software development and understanding of several programming languages such as Dart with Flutter Framework, C# .NET, Java and Javascript.\n\n My goal is to give people a better life by developing technology solutions',
             style: TextStyle(
               fontSize: 18,
               height: 1.4

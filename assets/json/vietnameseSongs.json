@@ -1,0 +1,51 @@
+[
+  {
+    "rating": "5",
+    "title":"Vì Mẹ Anh Bắt Chia Tay",
+    "text":"Miu Lê; Karik",
+    "img": "https://data.chiasenhac.com/data/cover/166/165383.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Vi%20Me%20Anh%20Bat%20Chia%20Tay%20-%20Miu%20Le_%20Karik_.mp3?alt=media&token=c2594051-dbca-475c-b8da-6cc31e7ad1de"
+  },
+  {
+    "rating": "4.6",
+    "title":"Vũ Trụ Trong Anh",
+    "text":"Hoàng Lan",
+    "img": "https://data.chiasenhac.com/data/cover/167/166104.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Vu%20Tru%20Trong%20Anh%20-%20Hoang%20Lan.mp3?alt=media&token=add8083d-8b6c-4b50-8d5d-b2e259556deb"
+  },
+  {
+    "rating": "4.5",
+    "title":"Hai Mươi Hai (22)",
+    "text":"AMee; Hứa Kim Tuyền",
+    "img": "https://data.chiasenhac.com/data/cover/164/163846.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Hai%20Muoi%20Hai%2022_%20-%20AMee_%20Hua%20Kim%20Tuyen.mp3?alt=media&token=2044884c-843d-475a-8cb9-7d92d3857c64"
+  },
+  {
+    "rating": "4.3",
+    "title":"Ước mơ của Mẹ ",
+    "text":"Hứa Kim Tuyền; Văn Mai Hương",
+    "img": "https://data.chiasenhac.com/data/cover/165/164124.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/uoc%20mo%20cua%20Me%20Colours%20Version_%20-%20Hua%20Kim.mp3?alt=media&token=ce5321e1-559b-487f-882e-487a6283d66e"
+  },
+  {
+    "rating": "4.3",
+    "title":"Có Chàng Trai Viết Lên Cây",
+    "text":"Phan Mạnh Quỳnh",
+    "img": "https://data.chiasenhac.com/data/cover/81/80748.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Co%20Chang%20Trai%20Viet%20Len%20Cay%20-%20Phan%20Manh%20Q.mp3?alt=media&token=43a25dff-ebeb-468e-a21a-915b0d0a4d58"
+  },
+  {
+    "rating": "4.5",
+    "title":"Hạ Còn Vương Nắng",
+    "text":"DatKaa",
+    "img": "https://data.chiasenhac.com/data/cover/139/138273.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Ha%20Con%20Vuong%20Nang%20-%20DatKaa.mp3?alt=media&token=54f51cb3-dcc4-4c88-9abe-f0aa9577f4ed"
+  },
+  {
+    "rating": "4.5",
+    "title":"There's No One At All",
+    "text":"Sơn Tùng M-TP",
+    "img": "https://data.chiasenhac.com/data/cover/162/161424.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/There_s%20No%20One%20At%20All%20-%20Son%20Tung%20M-TP.mp3?alt=media&token=d3e0258d-8781-4a8c-ba06-b51d3efc5ee3"
+  }
+]

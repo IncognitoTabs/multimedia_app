@@ -36,6 +36,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   late List popularBooks;
   late List books ;
+  late List vietnameseSongs ;
+  late List favouriteSongs ;
   late ScrollController _scrollController;
   late TabController _tabController;
 
@@ -51,6 +53,16 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
     await DefaultAssetBundle.of(context).loadString("assets/json/books.json").then((value){
       setState(() {
         books = json.decode(value);
+      });
+    });
+    await DefaultAssetBundle.of(context).loadString("assets/json/vietnameseSongs.json").then((value){
+      setState(() {
+        vietnameseSongs = json.decode(value);
+      });
+    });
+    await DefaultAssetBundle.of(context).loadString("assets/json/favouriteSongs.json").then((value){
+      setState(() {
+        favouriteSongs = json.decode(value);
       });
     });
   }
@@ -147,15 +159,26 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                     autoPlayCurve: Curves.fastLinearToSlowEaseIn,
                                     autoPlayAnimationDuration: 2.seconds,
                                     itemBuilder: (context, index){
-                                      return Container(
-                                        height: AppParams.swiperHeight,
-                                        width: MediaQuery.of(context).size.width,
-                                        decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(10),
-                                            image: DecorationImage(
-                                                image: AssetImage(popularBooks[index]["img"]),
-                                                fit: BoxFit.contain
-                                            )
+                                      return GestureDetector(
+                                        onTap: (){
+                                          Navigator.push(context,
+                                              MaterialPageRoute(
+                                                  builder: (context) => DetailOnlineAudioPage(detailAudio: popularBooks, index: index,)));
+                                        },
+                                        child: Container(
+                                          height: AppParams.swiperHeight,
+                                          width: MediaQuery.of(context).size.width,
+                                          margin: const EdgeInsets.only(left: 15, right: 15),
+                                          decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(10),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(popularBooks[index]["img"]),
+                                                  fit: BoxFit.cover
+                                              ),
+                                              border: Border.all(
+                                                style: BorderStyle.solid
+                                              )
+                                          ),
                                         ),
                                       );
                                     }),
@@ -193,7 +216,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                   tabs: [
                                     AppTabs(text: 'All', color: AppColors.menu1Color,),
                                     AppTabs(text: 'Favourite', color: AppColors.menu2Color,),
-                                    AppTabs(text: 'Trending', color: AppColors.menu3Color,),
+                                    AppTabs(text: 'Việt Nam', color: AppColors.menu3Color,),
                                   ],
                                 ),
                               ),
@@ -233,16 +256,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                           child: Row(
                                             children: [
                                               Container(
-                                                width: 90,
+                                                width: 100,
                                                 height: 100,
                                                 decoration: BoxDecoration(
                                                     borderRadius: BorderRadius.circular(10),
                                                     image: DecorationImage(
-                                                      image: AssetImage(books[i]["img"]),
+                                                      image: NetworkImage(books[i]["img"]),
+                                                      fit: BoxFit.fill
                                                     )
                                                 ),
                                               ),
-                                              const SizedBox(width: 10,),
+                                              const SizedBox(width: 20,),
                                               Column(
                                                 crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
@@ -275,22 +299,150 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                     ),
                                   );
                               }),
-                          const Material(
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundColor: Colors.grey,
-                              ),
-                              title: Text("Content"),
-                            ),
-                          ),
-                          const Material(
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundColor: Colors.grey,
-                              ),
-                              title: Text("Content"),
-                            ),
-                          ),
+                          ListView.builder(
+                              itemCount: favouriteSongs.length,
+                              itemBuilder: (_,i){
+                                return
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(context,
+                                          MaterialPageRoute(
+                                              builder: (context) => DetailOnlineAudioPage(detailAudio: favouriteSongs, index: i,)));
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.only(left:20, right: 20, top:10, bottom: 10),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(10),
+                                            color: AppColors.tabBarViewColor,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 2,
+                                                  offset: const Offset(0,0),
+                                                  color: Colors.grey.withOpacity(.2)
+                                              )
+                                            ]
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(8),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                width: 100,
+                                                height: 100,
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(favouriteSongs[i]["img"]),
+                                                        fit: BoxFit.fill
+                                                    )
+                                                ),
+                                              ),
+                                              const SizedBox(width: 20,),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.star, size: 22, color: AppColors.starColor,),
+                                                      const SizedBox(width: 5,),
+                                                      Text(favouriteSongs[i]["rating"], style: TextStyle(
+                                                          color: AppColors.menu2Color, fontSize: 17),)
+                                                    ],
+                                                  ),
+                                                  Text(favouriteSongs[i]["title"], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                                  Text(favouriteSongs[i]["text"], style: TextStyle(fontSize: 16, color: AppColors.subTitleText),),
+                                                  Container(
+                                                    width: 60,
+                                                    height: 20,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3),
+                                                        color: AppColors.loveColor
+                                                    ),
+                                                    child: const Text("Love", style: TextStyle(fontSize: 13, color: Colors.white),),
+                                                    alignment: Alignment.center,
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                              }),
+                          ListView.builder(
+                              itemCount: vietnameseSongs.length,
+                              itemBuilder: (_,i){
+                                return
+                                  GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(context,
+                                          MaterialPageRoute(
+                                              builder: (context) => DetailOnlineAudioPage(detailAudio: vietnameseSongs, index: i,)));
+                                    },
+                                    child: Container(
+                                      margin: const EdgeInsets.only(left:20, right: 20, top:10, bottom: 10),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(10),
+                                            color: AppColors.tabBarViewColor,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  blurRadius: 2,
+                                                  offset: const Offset(0,0),
+                                                  color: Colors.grey.withOpacity(.2)
+                                              )
+                                            ]
+                                        ),
+                                        child: Container(
+                                          padding: const EdgeInsets.all(8),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                width: 100,
+                                                height: 100,
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    image: DecorationImage(
+                                                        image: NetworkImage(vietnameseSongs[i]["img"]),
+                                                        fit: BoxFit.fill
+                                                    )
+                                                ),
+                                              ),
+                                              const SizedBox(width: 20,),
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Icon(Icons.star, size: 22, color: AppColors.starColor,),
+                                                      const SizedBox(width: 5,),
+                                                      Text(vietnameseSongs[i]["rating"], style: TextStyle(
+                                                          color: AppColors.menu2Color, fontSize: 17),)
+                                                    ],
+                                                  ),
+                                                  Text(vietnameseSongs[i]["title"], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                                  Text(vietnameseSongs[i]["text"], style: TextStyle(fontSize: 16, color: AppColors.subTitleText),),
+                                                  Container(
+                                                    width: 60,
+                                                    height: 20,
+                                                    decoration: BoxDecoration(
+                                                        borderRadius: BorderRadius.circular(3),
+                                                        color: AppColors.loveColor
+                                                    ),
+                                                    child: const Text("Love", style: TextStyle(fontSize: 13, color: Colors.white),),
+                                                    alignment: Alignment.center,
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                              }),
                         ],
                       ),
                     ))

@@ -48,7 +48,8 @@ class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
         _position = event;
       });
     });
-    advancedPlayer.setUrl(widget.detailAudio[widget.index]["audio"]);
+    advancedPlayer.play(widget.detailAudio[widget.index]["audio"]);
+    isPlaying = true;
     advancedPlayer.onPlayerCompletion.listen((event) {
       setState(() {
         _position = const Duration(seconds: 0);
@@ -324,20 +325,21 @@ class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
                   color: AppColors.background,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(0),
                   child: Container(
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
+                        borderRadius: BorderRadius.circular(18),
                         border: Border.all(color: Colors.white, width: 2),
                         image: DecorationImage(
-                          image: AssetImage(widget.detailAudio[widget.index]["img"]),
-                          fit: BoxFit.cover
+                          image: NetworkImage(widget.detailAudio[widget.index]["img"]),
+                          fit: BoxFit.fill
                         ),
                     ),
                   ),
                 ),
               )
-          )
+          ),
+
         ],
       ),
     );

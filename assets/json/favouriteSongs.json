@@ -1,0 +1,54 @@
+[
+  {
+    "rating": "5",
+    "title":"Vì Mẹ Anh Bắt Chia Tay",
+    "text":"Miu Lê; Karik",
+    "img": "https://data.chiasenhac.com/data/cover/166/165383.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Vi%20Me%20Anh%20Bat%20Chia%20Tay%20-%20Miu%20Le_%20Karik_.mp3?alt=media&token=c2594051-dbca-475c-b8da-6cc31e7ad1de"
+  },
+
+  {
+    "rating": "4.9",
+    "title":"We Don't Talk Anymore",
+    "text":"Charlie Puth; Selena Gomez",
+    "img": "https://data.chiasenhac.com/data/cover/53/52514.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/We%20Don_t%20Talk%20Anymore%20-%20Charlie%20Puth_%20Se.mp3?alt=media&token=9438fcb3-2912-49e8-87ee-349674c94cac"
+  },
+  {
+    "rating": "4.6",
+    "title":"Vũ Trụ Trong Anh",
+    "text":"Hoàng Lan",
+    "img": "https://data.chiasenhac.com/data/cover/167/166104.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Vu%20Tru%20Trong%20Anh%20-%20Hoang%20Lan.mp3?alt=media&token=add8083d-8b6c-4b50-8d5d-b2e259556deb"
+  },
+  {
+    "rating": "4.3",
+    "title":"Có Chàng Trai Viết Lên Cây",
+    "text":"Phan Mạnh Quỳnh",
+    "img": "https://data.chiasenhac.com/data/cover/81/80748.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Co%20Chang%20Trai%20Viet%20Len%20Cay%20-%20Phan%20Manh%20Q.mp3?alt=media&token=43a25dff-ebeb-468e-a21a-915b0d0a4d58"
+  },
+
+  {
+    "rating": "4.5",
+    "title":"Love Yourself",
+    "text":"Justin Bieber",
+    "img": "https://data.chiasenhac.com/data/cover/50/49139.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Love%20Yourself%20-%20Justin%20Bieber.mp3?alt=media&token=cad0619d-3aec-41f1-9a29-0ea5682aa801"
+  },
+  {
+  "rating": "4.2",
+  "title":"There's Nothing Holdin' Me Back",
+  "text":"Shawn Mendes",
+  "img": "https://data.chiasenhac.com/data/cover/71/70821.jpg",
+  "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/There_s%20Nothing%20Holdin_%20Me%20Back%20-%20Shawn.mp3?alt=media&token=0fd7bcac-b37a-49ae-b8a6-b5b16cb71d63"
+},
+
+  {
+    "rating": "4.5",
+    "title":"Believer",
+    "text":"Imagine Dragons",
+    "img": "https://data.chiasenhac.com/data/cover/69/68954.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Believer%20-%20Imagine%20Dragons.mp3?alt=media&token=b4303fe8-1fb4-42ce-8151-4cf38026b664"
+  }
+]
