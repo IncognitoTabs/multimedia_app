@@ -41,6 +41,13 @@ class _RadioPageState extends State<RadioPage> {
     'Play previous',
     'How the weather today',
   ];
+  @override
+  void dispose(){
+    super.dispose();
+    _audioPlayer.dispose();
+    AlanVoice.deactivate();
+    AlanVoice.hideButton();
+  }
 
   @override
   void initState() {
@@ -165,9 +172,6 @@ class _RadioPageState extends State<RadioPage> {
                         padding: const EdgeInsets.only(left: 15),
                         onPressed: () {
                           _scaffoldKey.currentState!.openDrawer();
-                          _audioPlayer.stop();
-                          AlanVoice.deactivate();
-                          AlanVoice.hideButton();
                           setState(() { });
                         }
                     ),
@@ -178,7 +182,6 @@ class _RadioPageState extends State<RadioPage> {
                           backgroundImage: NetworkImage(AppParams.avatarUrl),
                         ),
                           onTap: (){
-                          _audioPlayer.stop();
                             Navigator.of(context).push(
                                 MaterialPageRoute(builder: (context) => const ProfilePage()
                                 )

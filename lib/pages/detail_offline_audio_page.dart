@@ -267,7 +267,6 @@ class _DetailOfflineAudioPageState extends State<DetailOfflineAudioPage> {
                       backgroundImage: NetworkImage(AppParams.avatarUrl),
                     ),
                       onTap: (){
-                        advancedPlayer.stop();
                         Navigator.of(context).push(
                             MaterialPageRoute(builder: (context) => const ProfilePage()
                             )

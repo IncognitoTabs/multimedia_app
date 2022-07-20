@@ -34,6 +34,12 @@ class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
   late AudioPlayer advancedPlayer;
 
   @override
+  void dispose(){
+    super.dispose();
+    advancedPlayer.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
     advancedPlayer = AudioPlayer();
@@ -244,7 +250,6 @@ class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
                 leading: IconButton(
                   icon: const Icon(Icons.arrow_back_ios,),
                   onPressed: () {
-                    advancedPlayer.stop();
                     Navigator.of(context).pop();
                   }
               ),
@@ -255,7 +260,6 @@ class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
                       backgroundImage: NetworkImage(AppParams.avatarUrl),
                     ),
                     onTap: (){
-                      advancedPlayer.stop();
                       Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => const ProfilePage()
                         )
@@ -339,7 +343,6 @@ class _DetailOnlineAudioPageState extends State<DetailOnlineAudioPage> {
                 ),
               )
           ),
-
         ],
       ),
     );

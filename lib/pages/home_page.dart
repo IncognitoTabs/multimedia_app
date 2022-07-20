@@ -481,8 +481,6 @@ class NavigationDrawer extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const OnBoardingPage()
             )
         );
-        AlanVoice.deactivate();
-        AlanVoice.hideButton();
       },
       child: Container(
         padding: EdgeInsets.only(top: 24 + MediaQuery.of(context).padding.top, bottom: 24),
@@ -528,8 +526,6 @@ class NavigationDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const HomePage()
                   )
               );
-              AlanVoice.deactivate();
-              AlanVoice.hideButton();
             },
           ),
           ListTile(
@@ -540,8 +536,6 @@ class NavigationDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const AudioPage()
                   )
               );
-              AlanVoice.deactivate();
-              AlanVoice.hideButton();
             },
           ),
           ListTile(
@@ -565,16 +559,13 @@ class NavigationDrawer extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const ProfilePage()
                   )
               );
-              AlanVoice.deactivate();
-              AlanVoice.hideButton();
             },
           ),
           ListTile(
             leading: const Icon(Icons.settings_outlined),
             title: const Text('Setting'),
             onTap: (){
-              AlanVoice.deactivate();
-              AlanVoice.hideButton();
+
             },
           ),
         ],
