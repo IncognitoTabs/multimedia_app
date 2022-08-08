@@ -34,10 +34,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
-  late List popularBooks;
-  late List books ;
-  late List vietnameseSongs ;
-  late List favouriteSongs ;
+  List popularBooks = [];
+  List songs = [];
+  List vietnameseSongs = [];
+  List favouriteSongs = [];
   late ScrollController _scrollController;
   late TabController _tabController;
 
@@ -45,26 +45,17 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   // ignore: non_constant_identifier_names
   ReadData() async {
-    await DefaultAssetBundle.of(context).loadString("assets/json/popularBooks.json").then((value){
+    await DefaultAssetBundle.of(context).loadString("assets/json/songs.json").then((value){
       setState(() {
-        popularBooks = json.decode(value);
+        songs = json.decode(value);
       });
     });
-    await DefaultAssetBundle.of(context).loadString("assets/json/books.json").then((value){
-      setState(() {
-        books = json.decode(value);
-      });
-    });
-    await DefaultAssetBundle.of(context).loadString("assets/json/vietnameseSongs.json").then((value){
-      setState(() {
-        vietnameseSongs = json.decode(value);
-      });
-    });
-    await DefaultAssetBundle.of(context).loadString("assets/json/favouriteSongs.json").then((value){
-      setState(() {
-        favouriteSongs = json.decode(value);
-      });
-    });
+
+    for(int i =0; i < songs.length; i++){
+      if(songs[i]["popular"]==true) popularBooks.add(songs[i]);
+      if(songs[i]["favourite"]==true) favouriteSongs.add(songs[i]);
+      if(songs[i]["lang"] =="Vietnamese") vietnameseSongs.add(songs[i]);
+    }
   }
 
   @override
@@ -77,12 +68,6 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
         backgroundColor: AppColors.background.withOpacity(.8),
         drawer: const NavigationDrawer(),
@@ -228,14 +213,14 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                         controller: _tabController,
                         children: [
                           ListView.builder(
-                              itemCount: books.length,
+                              itemCount: songs.length,
                               itemBuilder: (_,i){
                                 return
                                   GestureDetector(
                                     onTap: (){
                                       Navigator.push(context,
                                       MaterialPageRoute(
-                                          builder: (context) => DetailOnlineAudioPage(detailAudio: books, index: i,)));
+                                          builder: (context) => DetailOnlineAudioPage(detailAudio: songs, index: i,)));
                                     },
                                     child: Container(
                                       margin: const EdgeInsets.only(left:20, right: 20, top:10, bottom: 10),
@@ -261,7 +246,7 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                                 decoration: BoxDecoration(
                                                     borderRadius: BorderRadius.circular(10),
                                                     image: DecorationImage(
-                                                      image: NetworkImage(books[i]["img"]),
+                                                      image: NetworkImage(songs[i]["img"]),
                                                       fit: BoxFit.fill
                                                     )
                                                 ),
@@ -274,12 +259,12 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                                                     children: [
                                                       Icon(Icons.star, size: 22, color: AppColors.starColor,),
                                                       const SizedBox(width: 5,),
-                                                      Text(books[i]["rating"], style: TextStyle(
+                                                      Text(songs[i]["rating"], style: TextStyle(
                                                           color: AppColors.menu2Color, fontSize: 17),)
                                                     ],
                                                   ),
-                                                  Text(books[i]["title"], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
-                                                  Text(books[i]["text"], style: TextStyle(fontSize: 16, color: AppColors.subTitleText),),
+                                                  Text(songs[i]["title"], style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                                  Text(songs[i]["text"], style: TextStyle(fontSize: 16, color: AppColors.subTitleText),),
                                                   Container(
                                                     width: 60,
                                                     height: 20,

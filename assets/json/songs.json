@@ -1,0 +1,212 @@
+[
+  {
+    "rating": "4.0",
+    "title":"One More Night",
+    "text":"Maroon 5",
+    "img": "https://data.chiasenhac.com/data/cover/2/1534.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/One%20More%20Night%20-%20Maroon%205.mp3?alt=media&token=c74559df-a2f4-4ef1-a155-006e341f08fc",
+    "lang": "English",
+    "category": "rock",
+    "favourite": false,
+    "popular": false
+  },
+  {
+    "rating": "4.5",
+    "title":"Bad Habits",
+    "text":"Ed Sheeran",
+    "img": "https://i.ytimg.com/vi/jubKrweXIos/maxresdefault.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Bad%20Habits%20-%20Ed%20Sheeran.mp3?alt=media&token=1e24dbdd-a200-42a9-8b1e-b45693da5731",
+    "lang": "English",
+    "category": "RnB",
+    "favourite": false,
+    "popular": true
+  },
+
+  {
+    "rating": "4.9",
+    "title":"We Don't Talk Anymore",
+    "text":"Charlie Puth; Selena Gomez",
+    "img": "https://data.chiasenhac.com/data/cover/53/52514.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/We%20Don_t%20Talk%20Anymore%20-%20Charlie%20Puth_%20Se.mp3?alt=media&token=9438fcb3-2912-49e8-87ee-349674c94cac",
+    "lang": "English",
+    "category": "RnB",
+    "favourite": true,
+    "popular": false
+  },
+  {
+    "rating": "4.5",
+    "title":"Symphony",
+    "text":"Clean Bandit; Zara Larsson",
+    "img": "https://data.chiasenhac.com/data/cover/70/69783.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Symphony%20-%20Clean%20Bandit_%20Zara%20Larsson.mp3?alt=media&token=952b12c7-064a-4d99-8402-5a84d095c4ae",
+    "lang": "English",
+    "category": "Symphony",
+    "favourite": false,
+    "popular": false
+  },
+  {
+    "rating": "4.3",
+    "title":"Ước mơ của Mẹ ",
+    "text":"Hứa Kim Tuyền; Văn Mai Hương",
+    "img": "https://data.chiasenhac.com/data/cover/165/164124.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/uoc%20mo%20cua%20Me%20Colours%20Version_%20-%20Hua%20Kim.mp3?alt=media&token=ce5321e1-559b-487f-882e-487a6283d66e",
+    "lang": "Vietnamese",
+    "category": "Pop",
+    "favourite": false,
+    "popular": false
+  },
+  {
+    "rating": "4.6",
+    "title":"Cheap Thrills",
+    "text":"Sia",
+    "img": "https://i.ytimg.com/vi/8qeN2_vGBSk/maxresdefault.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Cheap%20Thrills%20-%20Sia.mp3?alt=media&token=8ccf4318-caaf-4bf7-9512-211353877a46",
+    "lang": "English",
+    "category": "Pop",
+    "favourite": false,
+    "popular": true
+  },
+  {
+    "rating": "4.5",
+    "title":"Bad Liar",
+    "text":"Imagine Dragons",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmxWav34g4JXYo4B-Nxhyat6-LcaJRRi0DEg&usqp=CAU",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Bad%20Liar%20-%20Imagine%20Dragons.mp3?alt=media&token=7e1e9714-7318-48bf-8ae9-66e9750541ca",
+    "lang": "English",
+    "category": "rock",
+    "favourite": false,
+    "popular": true
+  },
+  {
+    "rating": "4.3",
+    "title":"Có Chàng Trai Viết Lên Cây",
+    "text":"Phan Mạnh Quỳnh",
+    "img": "https://data.chiasenhac.com/data/cover/81/80748.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Co%20Chang%20Trai%20Viet%20Len%20Cay%20-%20Phan%20Manh%20Q.mp3?alt=media&token=43a25dff-ebeb-468e-a21a-915b0d0a4d58",
+    "lang": "Vietnamese",
+    "category": "Soul",
+    "favourite": true,
+    "popular": false
+  },
+  {
+    "rating": "4.5",
+    "title":"Love Yourself",
+    "text":"Justin Bieber",
+    "img": "https://data.chiasenhac.com/data/cover/50/49139.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Love%20Yourself%20-%20Justin%20Bieber.mp3?alt=media&token=cad0619d-3aec-41f1-9a29-0ea5682aa801",
+    "lang": "English",
+    "category": "Dance",
+    "favourite": true,
+    "popular": false
+  },
+  {
+    "rating": "4.3",
+    "title":"See You Again",
+    "text":"Wiz Khalifa, Charlie Puth",
+    "img": "http://photocdn.sohu.com/20151214/mp11745158_1450078428380_2_th.jpeg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/See%20You%20Again%20-%20Wiz%20Khalifa_%20Charlie%20Put.mp3?alt=media&token=c31d7856-00fc-4a9f-8c44-95f14debafcb",
+    "lang": "English",
+    "category": "Rap",
+    "favourite": false,
+    "popular": true
+  },
+  {
+    "rating": "4.6",
+    "title":"Vũ Trụ Trong Anh",
+    "text":"Hoàng Lan",
+    "img": "https://data.chiasenhac.com/data/cover/167/166104.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Vu%20Tru%20Trong%20Anh%20-%20Hoang%20Lan.mp3?alt=media&token=add8083d-8b6c-4b50-8d5d-b2e259556deb",
+    "lang": "Vietnamese",
+    "category": "Blues",
+    "favourite": true,
+    "popular": false
+  },
+  {
+    "rating": "4.1",
+    "title":"Marry You",
+    "text":"Bruno Mars",
+    "img": "https://data.chiasenhac.com/data/cover/3/2005.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Marry%20You%20-%20Bruno%20Mars.mp3?alt=media&token=076cb920-9e96-44d0-88e9-980b360b45be",
+    "lang": "English",
+    "category": "Theme",
+    "favourite": false,
+    "popular": false
+  },
+  {
+    "rating": "4.5",
+    "title":"Let Me Love You",
+    "text":"DJ Snake; Justin Bieber",
+    "img": "https://i.ytimg.com/vi/31LzeSAtEuY/maxresdefault.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Let%20Me%20Love%20You%20-%20DJ%20Snake_%20Justin%20Biebe.mp3?alt=media&token=e7e18540-d286-4ca6-82e7-636dd8f17482",
+    "lang": "English",
+    "category": "Hiphop",
+    "favourite": false,
+    "popular": true
+  },
+  {
+    "rating": "4.5",
+    "title":"Believer",
+    "text":"Imagine Dragons",
+    "img": "https://data.chiasenhac.com/data/cover/69/68954.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Believer%20-%20Imagine%20Dragons.mp3?alt=media&token=b4303fe8-1fb4-42ce-8151-4cf38026b664",
+    "lang": "English",
+    "category": "Country",
+    "favourite": true,
+    "popular": false
+  },
+  {
+    "rating": "4.5",
+    "title":"There's No One At All",
+    "text":"Sơn Tùng M-TP",
+    "img": "https://data.chiasenhac.com/data/cover/162/161424.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/There_s%20No%20One%20At%20All%20-%20Son%20Tung%20M-TP.mp3?alt=media&token=d3e0258d-8781-4a8c-ba06-b51d3efc5ee3",
+    "lang": "Vietnamese",
+    "category": "Pop",
+    "favourite": false,
+    "popular": false
+  },
+  {
+    "rating": "4.5",
+    "title":"Hai Mươi Hai (22)",
+    "text":"AMee; Hứa Kim Tuyền",
+    "img": "https://data.chiasenhac.com/data/cover/164/163846.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Hai%20Muoi%20Hai%2022_%20-%20AMee_%20Hua%20Kim%20Tuyen.mp3?alt=media&token=2044884c-843d-475a-8cb9-7d92d3857c64",
+    "lang": "Vietnamese",
+    "category": "Pop",
+    "favourite": false,
+    "popular": false
+  },
+  {
+    "rating": "4.2",
+    "title":"There's Nothing Holdin' Me Back",
+    "text":"Shawn Mendes",
+    "img": "https://data.chiasenhac.com/data/cover/71/70821.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/There_s%20Nothing%20Holdin_%20Me%20Back%20-%20Shawn.mp3?alt=media&token=0fd7bcac-b37a-49ae-b8a6-b5b16cb71d63",
+    "lang": "English",
+    "category": "Blues",
+    "favourite": true,
+    "popular": false
+  },
+  {
+    "rating": "5",
+    "title":"Vì Mẹ Anh Bắt Chia Tay",
+    "text":"Miu Lê; Karik",
+    "img": "https://data.chiasenhac.com/data/cover/166/165383.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Vi%20Me%20Anh%20Bat%20Chia%20Tay%20-%20Miu%20Le_%20Karik_.mp3?alt=media&token=c2594051-dbca-475c-b8da-6cc31e7ad1de",
+    "lang": "Vietnamese",
+    "category": "Pop",
+    "favourite": true,
+    "popular": false
+  },
+  {
+    "rating": "4.5",
+    "title":"Hạ Còn Vương Nắng",
+    "text":"DatKaa",
+    "img": "https://data.chiasenhac.com/data/cover/139/138273.jpg",
+    "audio": "https://firebasestorage.googleapis.com/v0/b/fir-demo-29d5b.appspot.com/o/Ha%20Con%20Vuong%20Nang%20-%20DatKaa.mp3?alt=media&token=54f51cb3-dcc4-4c88-9abe-f0aa9577f4ed",
+    "lang": "Vietnamese",
+    "category": "Pop",
+    "favourite": false,
+    "popular": false
+  }
+]
